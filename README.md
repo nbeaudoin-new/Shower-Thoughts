@@ -4,7 +4,7 @@
 
 ## The Story
 
-I record voice memos in the shower. Ideas, client notes, work thoughts — whatever comes to mind. The problem is they pile up as a folder of unnamed MP3s with no structure.
+I keep an old school voice recorder on me — a dedicated device — because my iPhone is usually tied up playing podcasts. Ideas and work thoughts pile up as a folder of unnamed MP3s with no structure.
 
 I looked at transcription services. Most charge $10–20/month. Some cap your minutes. All of them want a subscription for something I'd use a few times a week.
 
@@ -24,41 +24,7 @@ Drop up to 20 MP3/WAV/M4A recordings. Each file is transcribed via OpenAI Whispe
 
 ## How It Works
 
-```mermaid
-flowchart TD
-    U([User\nDrags up to 20 audio files])
-
-    subgraph FE["FRONTEND · React + Vite · :5173"]
-        DZ[Drop Zone\nDropZone.jsx]
-        BP[Batch Processor\nApp.jsx · sequential]
-        TV[Transcript View\nOrg badge · client chips]
-        CP[Context Panel\nContextPanel.jsx]
-    end
-
-    subgraph BE["BACKEND · Express · :3001"]
-        EX[Express Server\nserver.js · multer upload]
-        TP[Transcribe Pipeline\ntranscribe.js]
-    end
-
-    subgraph OAI["EXTERNAL · OpenAI APIs"]
-        WH[Whisper API\nwhisper-1 · raw transcription]
-        GPT[Chat API\ngpt-4o-mini · organizes output\ngroups by org · detects clients]
-    end
-
-    OUT([context.md\nAuto-downloaded · grouped by org])
-
-    U -->|MP3 / WAV / M4A| DZ
-    DZ --> BP
-    BP -->|POST /api/transcribe\nmultipart/form-data| EX
-    EX --> TP
-    TP -->|audio file| WH
-    WH -->|raw text| GPT
-    GPT -.->|structured transcript| TP
-    TP -.->|transcript · organization · clients| BP
-    BP --> TV
-    BP --> CP
-    CP -->|Generate context.md| OUT
-```
+![Shower Thoughts System Architecture](transcription-app/docs/architecture.png)
 
 ---
 
