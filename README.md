@@ -1,14 +1,14 @@
 # Shower Thoughts
 
-> Built in an afternoon with Claude for less than $0.50 in AI tokens. Because why pay $20/month?
+> Built in an afternoon with Claude Code for less than $0.50 in AI tokens. Because why pay $20/month?
 
 ## The Story
 
-I keep an old school voice recorder on me — a dedicated device — because my iPhone is usually tied up playing podcasts. Ideas and work thoughts pile up as a folder of unnamed MP3s with no structure.
+I keep an old school voice recorder on me — a dedicated device — because my iPhone is usually tied up playing podcasts. Thoughts on technology and AI pile up as a folder of unnamed MP3s with no structure.
 
 I looked at transcription services. Most charge $10–20/month. Some cap your minutes. All of them want a subscription for something I'd use a few times a week.
 
-So I asked Claude to build it instead.
+So I worked with Claude Code to build it instead.
 
 **Total cost to build this entire app:** ~$0.27 in Claude API tokens (roughly 42,000 tokens on Claude Sonnet at $3/1M input, $15/1M output).
 
