@@ -24,7 +24,7 @@ Drop up to 20 MP3/WAV/M4A recordings. Each file is transcribed via OpenAI Whispe
 
 ## How It Works
 
-![Shower Thoughts System Architecture](docs/architecture.png)
+![Shower Thoughts System Architecture](docs/architecture-v2.png)
 
 ---
 
