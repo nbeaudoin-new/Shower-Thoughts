@@ -24,41 +24,7 @@ Drop up to 20 MP3/WAV/M4A recordings. Each file is transcribed via OpenAI Whispe
 
 ## How It Works
 
-```mermaid
-flowchart TD
-    U([User · drags up to 20 audio files])
-
-    subgraph FE["FRONTEND · React + Vite · :5173"]
-        DZ[Drop Zone]
-        BP[Batch Processor · sequential]
-        TV[Transcript View]
-        CP[Context Panel]
-    end
-
-    subgraph BE["BACKEND · Express · :3001"]
-        EX[Express Server]
-        TP[Transcribe Pipeline]
-    end
-
-    subgraph OAI["EXTERNAL · OpenAI APIs"]
-        WH[Whisper API · whisper-1]
-        GPT[Chat API · gpt-4o-mini\ngroups by org · detects clients]
-    end
-
-    OUT([context.md · auto-downloaded])
-
-    U -->|MP3 / WAV / M4A| DZ
-    DZ --> BP
-    BP -->|POST /api/transcribe| EX
-    EX --> TP
-    TP -->|audio| WH
-    WH -->|raw text| GPT
-    GPT -.->|structured transcript| TP
-    TP -.->|transcript · org · clients| BP
-    BP --> TV
-    BP --> CP
-    CP -->|Generate context.md| OUT
-```
+<img src="docs/architecture-v2.png" alt="Shower Thoughts System Architecture" width="100%"/>
 
 ---
 
